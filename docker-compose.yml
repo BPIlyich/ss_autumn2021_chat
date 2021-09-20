@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  web:
+    image: backend-image
+    container_name: web
+    hostname: web
+    build: .
+    command: bash -c "python chat/manage.py migrate &&
+                      django-admin compilemessages &&
+                      python chat/manage.py runserver 0.0.0.0:8080"
+    # env_file: dev.env
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8080"
+
+  redis:
+    image: redis:6.2.5-alpine
+    container_name: redis
+    hostname: redis
+    ports:
+      - "6379:6379"

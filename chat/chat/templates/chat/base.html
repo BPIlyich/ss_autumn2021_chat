@@ -1,0 +1,19 @@
+{% extends 'django_bootstrap5/bootstrap5.html' %}
+
+{% block bootstrap5_title %}Просто чат | {{ title|capfirst }}{% endblock bootstrap5_title %}
+
+{% block bootstrap5_content %}
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+      <span class="fs-4">Просто Чат</span>
+    </a>
+  </header>
+  <main>
+    <h1> {{ title|capfirst }} </h1>
+    {% block content %}{% endblock content %}
+  </main>
+  <footer class="pt-5 my-5 text-muted border-top">
+    Тяп-Ляп. 2021
+  </footer>
+</div>{% endblock bootstrap5_content %}
